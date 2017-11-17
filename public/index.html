@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="./javascripts/app.js"></script>
+<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+  <meta charset="utf-8">
+  <title>Address Book</title>
+</head>
+<body>
+  <h1 class='entryHeader'>Address Book</h1>
+  <h4 class='titleSubtext'>Create a new entry for the address book with the form below</h4>
+  <div id='app' ng-app='app' ng-controller='mainCtrl'>
+    <ul class='list center stretch'>
+      <li ng-repeat='i in addresses' class='addresses'>
+        <h1>{{ i.name }}</h1>
+        <h3>{{ i.homeAddress }}</h3>
+        <h3>{{ i.phone }}</h3>
+        <img class='picture' ng-src="{{ i.pictureUrl }}" />
+      </li>
+    </ul>
+    <h1 class='entryHeader'> Enter a new address</h1>
+      <form id="newAddress" ng-submit="addAddress()">
+        Name: <input type="text" ng-model="Name" value=""><br>
+        Home Address: <input type="text" ng-model="hA" value=""><br>
+        Phone Number: <input type="text" ng-model="phoneNumber" value=""><br>
+        Picture URL: <input type="url" ng-model="Picture" value=""><br>
+        <input type="submit" value="Submit" style="font-size: 115%">
+      </form>
+  </div>
+
+</body>
+</html>
